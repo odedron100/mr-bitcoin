@@ -1,4 +1,4 @@
-export default {
+export const contactsService = {
   getContacts,
   getContactById,
   deleteContact,
@@ -142,8 +142,8 @@ function sort(arr) {
 function getContacts(filterBy = null) {
   return new Promise((resolve, reject) => {
     var contactsToReturn = contacts;
-    if (filterBy && filterBy.term) {
-      contactsToReturn = filter(filterBy.term)
+    if (filterBy) {
+      contactsToReturn = filter(filterBy)
     }
     resolve(sort(contactsToReturn))
   })
@@ -198,11 +198,12 @@ function getEmptyContact() {
 }
 
 function filter(term) {
-  term = term.toLocaleLowerCase()
+  console.log('term', term);
+  term.name = term.name.toLocaleLowerCase()
   return contacts.filter(contact => {
-    return contact.name.toLocaleLowerCase().includes(term) ||
-      contact.phone.toLocaleLowerCase().includes(term) ||
-      contact.email.toLocaleLowerCase().includes(term)
+    return contact.name.toLocaleLowerCase().includes(term.name) &&
+      contact.phone.toLocaleLowerCase().includes(term.phone) ||
+      contact.email.toLocaleLowerCase().includes(term.email)
   })
 }
 

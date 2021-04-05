@@ -1,0 +1,11 @@
+.homePage-container{
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  & .user-details{
+    padding: 15px;
+    box-shadow: 0px 1px 1px black;
+  }
+}
