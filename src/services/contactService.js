@@ -202,7 +202,7 @@ function filter(term) {
   term.name = term.name.toLocaleLowerCase()
   return contacts.filter(contact => {
     return contact.name.toLocaleLowerCase().includes(term.name) &&
-      contact.phone.toLocaleLowerCase().includes(term.phone) ||
+      contact.phone.toLocaleLowerCase().includes(term.phone) &&
       contact.email.toLocaleLowerCase().includes(term.email)
   })
 }

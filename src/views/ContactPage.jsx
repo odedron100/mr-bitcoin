@@ -1,10 +1,11 @@
+// import React, { Component, useState } from 'react'
 import React, { Component } from 'react'
 import {contactsService} from '../services/contactService.js';
 import  {ContactList}  from '../cmps/ContactList.jsx';
 import  {ContactDetailsPage}  from './ContactDetailsPage.jsx';
 import {ContactFilter} from '../cmps/ContactFilter.jsx';
 
-export  class ContactPage extends Component {
+export class ContactPage extends Component {
    state = {
     contacts: null,
     selectedUser:null,
@@ -23,11 +24,13 @@ export  class ContactPage extends Component {
   onSelectedContact = async (contactId) =>{
     const selectedUser = await contactsService.getContactById(contactId)
     console.log('user', selectedUser);
-    this.setState({selectedUser})
+    // this.setState({selectedUser})
+    this.props.history.push(`${this.props.match.path}/${selectedUser._id}`);
   }
 
-  closeContactDetails (){
-    this.setState({selectedUser:null})
+  closeContactDetails = () =>{
+    console.log('remove');
+    this.setState({selectedUser:null},this.loadContacts)
   }
 
   onFilter = (filterBy)=>{
@@ -36,17 +39,45 @@ export  class ContactPage extends Component {
 
   get contactDetails (){
     console.log('here');
-      return this.state.selectedUser && (<ContactDetailsPage contact={this.state.selectedUser}/>)
+      return this.state.selectedUser && (<ContactDetailsPage contact={this.state.selectedUser} closeContactDetails={this.closeContactDetails}/>)
   }
 
   render() {
     const {contacts} = this.state;
+    const {match} = this.props;
+    console.log('this.props', this.props);
     return (
-     contacts && <div className="contacts-container">
+     contacts && <div className="contacts-container container">
         <ContactFilter onFilter={this.onFilter}/>
         <ContactList contacts={contacts} onSelectedContact={this.onSelectedContact}/>
         {this.contactDetails}
+
+        {/* <Switch>
+          <Route path={`${match.path}/:topicId`}>
+            <Topic />
+          </Route>
+          <Route path={match.path}>
+            <h3>Please select a topic.</h3>
+          </Route>
+        </Switch> */}
       </div>
     )
   }
 }
+
+// const ContactDetails = () => {
+//   return
+// }
+
+// Remove
+
+// export const ContactPage = () => {
+//   const [counter, setCounter] = useState(0);
+//   const handlePlus = () => setCounter(counter+1);
+
+//   return (
+//     <div>
+//       <button onClick={handlePlus}>+</button>
+//       <div>{counter}</div>
+//     </div>);
+// }
