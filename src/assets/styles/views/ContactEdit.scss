@@ -1,0 +1,35 @@
+
+.contact-edit{
+    background-color: white;
+    border-radius: 4px;
+    display: flex;
+    width: 400px;
+    flex-direction: column;
+    margin: 100px auto;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%) ;
+    h3{
+      text-align: center;
+      padding: 15px 0;
+    }
+    div{
+      display: flex;
+      width: 100%;
+      padding: 20px 50px 20px 50px;
+      justify-content: space-between;
+      align-items: center;
+      input{
+        width: 70%;
+      }
+    }
+    button{
+      border: 0;
+      background-color: rgba(255, 255, 255, 0.68);
+      color: #170505;
+      margin: 20px;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+}

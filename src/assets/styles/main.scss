@@ -16,8 +16,10 @@
 @import "cmps/ContactFilter.scss";
 @import "cmps/ContactList.scss";
 @import "cmps/ContactPreview.scss";
+@import "cmps/AppHeader.scss";
 
 //views
+@import "views/ContactEdit.scss";
 @import "views/ContactDetailsPage.scss";
 @import "views/ContactPage.scss";
 @import "views/HomePage.scss";

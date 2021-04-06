@@ -8,18 +8,23 @@ export class ContactDetailsPage extends Component {
     }
 
     componentDidMount() {
-      console.log('this.props.match.params.contactId', this.props.match.params.contactId);
+      console.log('this.props', this.props);
         this.loadContact()
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     if (prevProps.match.params.id !== this.props.match.params.contactId) {
-    //         this.loadContact()
-    //     }
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevProps.match.params.id !== this.props.match.params.id) {
+            this.loadContact()
+        }
+    }
+
+    onRemoveContact = async (id) =>{
+    await contactsService.deleteContact(id)
+    this.props.history.push('/contacts')
+  }
 
     async loadContact() {
-        const contact = await contactsService.getContactById(this.props.match.params.contactId)
+        const contact = await contactsService.getContactById(this.props.match.params.id)
         this.setState({ contact })
     }
 
@@ -27,11 +32,16 @@ export class ContactDetailsPage extends Component {
     const {contact} = this.state;
     return (
     contact &&  <div className="contact-details-container">
-        <h3 className="contact-title">contact details</h3>
-        <h5>Name:{contact.name}</h5>
-        <h5>Phone:{contact.phone}</h5>
-        <h5>Email:{contact.email}</h5>
-        <Link to={'/contacts/edit/' + contact._id}>Edit</Link>
+        <div>
+          <h3 className="contact-title">contact details</h3>
+          <h5>Name:{contact.name}</h5>
+          <h5>Phone:{contact.phone}</h5>
+          <h5>Email:{contact.email}</h5>
+        </div>
+        <footer>
+          <Link className="edit" to={'/contacts/edit/' + contact._id}>Edit</Link>
+          <button className="remove-contact" onClick={() => this.onRemoveContact(contact._id)}>Delete</button>
+        </footer>
       </div>
     )
   }

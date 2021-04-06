@@ -9,8 +9,10 @@ import './assets/styles/main.scss'
 import HomePage from './views/HomePage';
 // import { ContactDetailsPage } from './views/ContactDetailsPage';
 import { StatisticPage } from './views/StatisticPage';
-import { ContactSystem } from './views/ContactSystem.jsx';
+import { ContactPage } from './views/ContactPage';
 import { ContactEdit } from './views/ContactEdit';
+import { ContactDetailsPage } from './views/ContactDetailsPage';
+import { AppHeader } from './cmps/AppHeader';
 import './App.css';
 
 class App extends Component {
@@ -18,11 +20,13 @@ class App extends Component {
     return (
       <div className="app">
         <Router>
+          <AppHeader />
           <Switch>
             <Route path='/contacts/edit/:id?' component={ContactEdit} />
-            <Route path="/statistic"> component={StatisticPage}
+            <Route path='/contacts/:id' component={ContactDetailsPage} />
+            <Route path="/statistic" component={StatisticPage}>
             </Route>
-            <Route path="/contacts" component={ContactSystem}>
+            <Route path="/contacts" component={ContactPage}>
             </Route>
             <Route path="/" component={HomePage}>
             </Route>

@@ -19,9 +19,10 @@ export default class HomePage extends Component {
     return (
       user && <div className="homePage-container">
         <div className="user-details">
-          <h3 className="username"> name :{user.name}</h3>
-          <h3 className="user-coins"> coins :{user.coins} 💰</h3>
-          <h3 className="user-bitcoin">bitcoin :{currBitcoin} 💰</h3>
+          <h3 className="profile">PROFILE</h3>
+          <div className="item"><p>name :</p> <h3 className="username">{user.name}</h3></div>
+          <div className="item"><p>coins :</p> <h3 className="user-coins"> {user.coins} 💰</h3></div>
+          <div className="item"><p>bitcoin :</p> <h3 className="user-bitcoin">bi{currBitcoin} 💰</h3></div>
         </div>
       </div>
     )

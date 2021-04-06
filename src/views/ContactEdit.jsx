@@ -35,15 +35,21 @@ export class ContactEdit extends Component {
         if (!this.state.contact) return <div>{this.state.errMsg || 'Loading'}</div>
         const { name, email, phone } = this.state.contact
         return (
-            <form className='robot-edit' onSubmit={this.onSaveContact}>
-                <label htmlFor="name">Name</label>
-                <input  required type="text" id="name" value={name} onChange={this.handleChange} name="name" />
+            <form className='contact-edit' onSubmit={this.onSaveContact}>
+                <h3>Edit your contact</h3>
+                <div>
+                    <label htmlFor="name">Name</label>
+                    <input  required type="text" id="name" value={name} onChange={this.handleChange} name="name" />
+                </div>
+                <div>
+                    <label htmlFor="email">Email</label>
+                    <input required type="text" id="email" value={email} onChange={this.handleChange} name="email" />
+                </div>
 
-                <label htmlFor="email">Email</label>
-                <input required type="text" id="email" value={email} onChange={this.handleChange} name="email" />
-
-                <label htmlFor="phone">Phone</label>
-                <input required type="text" id="phone" value={phone} onChange={this.handleChange} name="phone" />
+                <div>
+                    <label htmlFor="phone">Phone</label>
+                    <input required type="text" id="phone" value={phone} onChange={this.handleChange} name="phone" />
+                </div>
 
                 <p>{this.state.errMsg}</p>
                 <button>Save Contact</button>
