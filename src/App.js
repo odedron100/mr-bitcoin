@@ -8,15 +8,10 @@ import {
 import './assets/styles/main.scss'
 import HomePage from './views/HomePage';
 // import { ContactDetailsPage } from './views/ContactDetailsPage';
-import { ContactPage } from './views/ContactPage';
 import { StatisticPage } from './views/StatisticPage';
 import { ContactSystem } from './views/ContactSystem.jsx';
+import { ContactEdit } from './views/ContactEdit';
 import './App.css';
-
-const DetailsPage = (props) => {
-  console.log('props', props);
-  return <div>Elior!!</div>;
-}
 
 class App extends Component {
   render() {
@@ -24,12 +19,9 @@ class App extends Component {
       <div className="app">
         <Router>
           <Switch>
-            <Route path="/statistic">
-              <StatisticPage />
+            <Route path='/contacts/edit/:id?' component={ContactEdit} />
+            <Route path="/statistic"> component={StatisticPage}
             </Route>
-            {/* <Route path="/details">
-              <ContactDetailsPage />
-            </Route> */}
             <Route path="/contacts" component={ContactSystem}>
             </Route>
             <Route path="/" component={HomePage}>

@@ -10,7 +10,6 @@ import {
 export class ContactSystem extends Component {
   render() {
     const {match} = this.props;
-    console.log('match.path', match.path);
     return (
       <Switch>
         <Route path={`${match.path}/:contactId`} component={ContactDetailsPage}>

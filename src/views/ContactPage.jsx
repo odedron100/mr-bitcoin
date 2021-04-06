@@ -1,5 +1,6 @@
 // import React, { Component, useState } from 'react'
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import {contactsService} from '../services/contactService.js';
 import  {ContactList}  from '../cmps/ContactList.jsx';
 import  {ContactDetailsPage}  from './ContactDetailsPage.jsx';
@@ -28,10 +29,6 @@ export class ContactPage extends Component {
     this.props.history.push(`${this.props.match.path}/${selectedUser._id}`);
   }
 
-  closeContactDetails = () =>{
-    console.log('remove');
-    this.setState({selectedUser:null},this.loadContacts)
-  }
 
   onFilter = (filterBy)=>{
     this.setState({filterBy},this.loadContacts)
@@ -39,16 +36,16 @@ export class ContactPage extends Component {
 
   get contactDetails (){
     console.log('here');
-      return this.state.selectedUser && (<ContactDetailsPage contact={this.state.selectedUser} closeContactDetails={this.closeContactDetails}/>)
+      return this.state.selectedUser && (<ContactDetailsPage contact={this.state.selectedUser}/>)
   }
 
   render() {
     const {contacts} = this.state;
-    const {match} = this.props;
     console.log('this.props', this.props);
     return (
      contacts && <div className="contacts-container container">
         <ContactFilter onFilter={this.onFilter}/>
+        <Link className="add-contact" to="/contacts/edit">Add Contact</Link>
         <ContactList contacts={contacts} onSelectedContact={this.onSelectedContact}/>
         {this.contactDetails}
 
