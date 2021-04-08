@@ -11,6 +11,7 @@ import HomePage from './views/HomePage';
 import { StatisticPage } from './views/StatisticPage';
 import { ContactPage } from './views/ContactPage';
 import { ContactEdit } from './views/ContactEdit';
+import { SignupPage } from './views/SignupPage';
 import { ContactDetailsPage } from './views/ContactDetailsPage';
 import { AppHeader } from './cmps/AppHeader';
 import './App.css';
@@ -26,6 +27,7 @@ class App extends Component {
             <Route path='/contacts/:id' component={ContactDetailsPage} />
             <Route path="/statistic" component={StatisticPage}>
             </Route>
+            <Route path='/signup' component={SignupPage} />
             <Route path="/contacts" component={ContactPage}>
             </Route>
             <Route path="/" component={HomePage}>

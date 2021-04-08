@@ -1,13 +1,15 @@
 // import React, { Component, useState } from 'react'
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import {contactsService} from '../services/contactService.js';
-import  {ContactList}  from '../cmps/ContactList.jsx';
-import {ContactFilter} from '../cmps/ContactFilter.jsx';;
 
-export class ContactPage extends Component {
+import  {ContactList}  from '../cmps/ContactList.jsx';
+import {ContactFilter} from '../cmps/ContactFilter.jsx';
+import { loadContacts, removeContact } from '../store/actions/contactActions'
+
+export class _ContactPage extends Component {
    state = {
-    contacts: null,
+    // contacts: null,
     filterBy:null
   }
 
@@ -15,9 +17,8 @@ export class ContactPage extends Component {
     this.loadContacts();
   }
 
-   loadContacts = async () =>{
-    const contacts = await contactsService.getContacts(this.state.filterBy);
-    this.setState({contacts})
+   loadContacts = () =>{
+    this.props.loadContacts(this.state.filterBy)
    }
 
   onFilter = (filterBy)=>{
@@ -25,8 +26,7 @@ export class ContactPage extends Component {
   }
 
   render() {
-    const {contacts} = this.state;
-    console.log('this.props', this.props);
+    const {contacts} = this.props;
     return (
      contacts && <div className="contacts-container container">
         <ContactFilter onFilter={this.onFilter}/>
@@ -36,6 +36,20 @@ export class ContactPage extends Component {
     )
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    contacts: state.contactReducer.contacts
+  }
+}
+
+const mapDispatchToProps = {
+  loadContacts,
+  removeContact
+}
+
+export const ContactPage = connect(mapStateToProps, mapDispatchToProps)(_ContactPage)
+
 
 // const ContactDetails = () => {
 //   return

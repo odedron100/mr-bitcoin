@@ -8,6 +8,7 @@ const _AppHeader = () => {
                 <li><NavLink exact to="/" activeClassName="active-nav">Home</NavLink></li>
                 <li><NavLink exact to="/contacts" activeClassName="active-nav">Conatacs</NavLink></li>
                 <li><NavLink exact to="/statistic" activeClassName="active-nav">Statistic</NavLink></li>
+                <li><NavLink exact to="/signup" activeClassName="active-nav">signup</NavLink></li>
             </ul>
         </div>
     )

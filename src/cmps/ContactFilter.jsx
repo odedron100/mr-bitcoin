@@ -17,9 +17,8 @@ export class ContactFilter extends Component {
   render() {
     const {name,phone,email} = this.state;
     return (
-      <div>
-        <h3 className="title">FILTER</h3>
-        <form className="contyact-filter" onSubmit={(ev) => ev.preventDefault()}>
+      <div className="filter">
+        <form className="contact-filter" onSubmit={(ev) => ev.preventDefault()}>
           <div>
             <label htmlFor="name">Name</label>
             <input type="text" id="name" name="name" value={name} onChange={this.handleChange}/>

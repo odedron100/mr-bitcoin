@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import {contactsService} from '../services/contactService.js';
+import { saveContact } from '../store/actions/contactActions'
 
-export class ContactEdit extends Component {
+export class _ContactEdit extends Component {
   // inputRef = React.createRef()
   state = {
         contact: null,
@@ -12,7 +14,6 @@ export class ContactEdit extends Component {
         console.log('id',id );
         try {
             const contact = id ? await contactsService.getContactById(id) : contactsService.getEmptyContact()
-            console.log('contact', contact);
             this.setState({ contact })
         } catch (err) {
             this.setState({ errMsg: 'contact Not Found' })
@@ -28,7 +29,7 @@ export class ContactEdit extends Component {
     }
     onSaveContact = async (ev) => {
         ev.preventDefault()
-        await contactsService.saveContact({ ...this.state.contact })
+        this.props.saveContact(this.state.contact);
         this.props.history.push('/contacts')
     }
     render() {
@@ -57,3 +58,10 @@ export class ContactEdit extends Component {
         )
     }
 }
+
+
+const mapDispatchToProps = {
+  saveContact
+}
+
+export const ContactEdit = connect(null, mapDispatchToProps)(_ContactEdit)
