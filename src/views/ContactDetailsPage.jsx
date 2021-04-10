@@ -68,8 +68,8 @@ export class _ContactDetailsPage extends Component {
           <TransferFund contact={contact} onTransferCoins={this.onTransferCoins} maxCoins={user.coins}/>
           <MovesList moves={user.moves} toUser={contact}/>
             <footer>
-              <Link className="edit" to={'/contacts/edit/' + contact._id}>Edit</Link>
-              <button className="remove-contact" onClick={() => this.onRemoveContact(contact._id)}>Delete</button>
+              <Link className="edit footer-button" to={'/contacts/edit/' + contact._id}><i class="fas fa-edit"></i></Link>
+              <button className="remove-contact footer-button" onClick={() => this.onRemoveContact(contact._id)}><i class="fas fa-trash-alt"></i></button>
             </footer>
           </div>
       </section>

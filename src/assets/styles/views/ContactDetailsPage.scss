@@ -47,13 +47,9 @@
     & footer{
       display: flex;
       justify-content: space-between;
-      .edit{
-        border: 0;
-      background-color: rgba(255, 255, 255, 0.769);
-      color: #170505;
-      padding: 5px 10px;
-      margin: 5px;
-      cursor: pointer;
+      .footer-button{
+        font-size: 20px;
+        padding: 5px;
       }
     }
   }

@@ -4,15 +4,17 @@ import moment from "moment";
 export function MovesList({moves, toUser}) {
   return (
     moves && <ul className="move-list">
-      <li className="title">Your moves:</li>
+     {toUser && <li className="title">Your moves:</li>}
       {moves.map(move=>{
-        if (move.contact._id !== toUser._id) {
-          return null;
+        if(toUser){
+          if (move.contact._id !== toUser._id) {
+            return null;
+          }
         }
 
         return (<li class="list-item">
-          {/* <p>{moment(move.at).fromNow()}</p> */}
-          <p>You transfer <span>$ {move.amount}</span> {moment(move.at).fromNow()} to {toUser.name}</p>
+          {toUser&&<p>You transfer <span>$ {move.amount}</span> {moment(move.at).fromNow()} to {toUser.name}</p>}
+          {!toUser&&<p style={{textAlign: `left`}}>You transfer <span>$ {move.amount}</span> {moment(move.at).fromNow()} to {move.contact.name}</p>}
         </li>)
       })}
     </ul>

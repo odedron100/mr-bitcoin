@@ -34,9 +34,11 @@ export class _ContactEdit extends Component {
     render() {
         if (!this.state.contact) return <div>{this.state.errMsg || 'Loading'}</div>
         const { name, email, phone,img } = this.state.contact
+        const {contact} = this.state;
         return (
             <form className='contact-edit' onSubmit={this.onSaveContact}>
-                <h3>Edit your contact</h3>
+                {!contact && <h3><i class="fas fa-edit"></i> your contact</h3>}
+                {contact && <h3><i class="fas fa-edit"></i> {contact.name}</h3>}
                 <div>
                     <label htmlFor="name">Name</label>
                     <input  required type="text" id="name" value={name} onChange={this.handleChange} name="name" />

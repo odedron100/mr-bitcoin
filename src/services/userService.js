@@ -29,7 +29,7 @@ function getLoggedInUser() {
 
 function signup(user) {
   // utilService.saveToStorage(KEY, user);
-  sessionStorage.setItem(KEY,JSON.stringify(user))
+  sessionStorage.setItem(KEY, JSON.stringify(user))
 }
 
 // function updateUserAmount(amount) {
@@ -40,11 +40,11 @@ function signup(user) {
 //   return user
 // }
 
-function updateUser(amount,contact) {
+function updateUser(amount, contact) {
   var user = JSON.parse(sessionStorage.getItem(KEY))
-  user.coins = user.coins-amount;
+  user.coins = user.coins - amount;
   const today = new Date();
-  user.moves.push({at: today.toISOString(), amount,contact})
-  sessionStorage.setItem(KEY,JSON.stringify(user))
+  user.moves.unshift({ at: today.toISOString(), amount, contact })
+  sessionStorage.setItem(KEY, JSON.stringify(user))
   return user
 }

@@ -20,6 +20,15 @@
       justify-content: space-between;
       align-items: center;
       input{
+        box-sizing: border-box;
+        padding: 8px 12px;
+        border: 1px solid #c5c6c9;
+        border-radius: 4px;
+        box-shadow: none;
+        font-size: 16px;
+        font: inherit;
+        color: #404145;
+        transition: 0.15s ease-in-out;
         width: 70%;
       }
     }
