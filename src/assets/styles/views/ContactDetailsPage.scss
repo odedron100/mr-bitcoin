@@ -1,33 +1,38 @@
-.contact-details-container{
-  margin: auto;
+.contact-details{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  margin-top: 100px;
-  width: 350px;
-  height: 500px;
-  box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%) ;
-  background-color: #f7f5f5;
-  color: #404145;
-  padding: 10px;
-  & .contact-title{
-    margin: 20px 0 40px 0;
+  .contact-details-container{
+    margin: auto;
     display: flex;
-    justify-content: center;
-  }
-  & h5{
-    padding: 30px 15px;
-  }
-  & footer{
-    display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    .edit{
-      border: 0;
-    background-color: rgba(255, 255, 255, 0.769);
-    color: #170505;
-    padding: 5px 10px;
-    margin: 5px;
-    cursor: pointer;
+    margin-top: 100px;
+    width: 350px;
+    height: 500px;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%) ;
+    background-color: #f7f5f5;
+    color: #404145;
+    padding: 10px;
+    margin-bottom: 100px;
+    & .contact-title{
+      margin: 20px 0 40px 0;
+      display: flex;
+      justify-content: center;
+    }
+    & h5{
+      padding: 30px 15px;
+    }
+    & footer{
+      display: flex;
+      justify-content: space-between;
+      .edit{
+        border: 0;
+      background-color: rgba(255, 255, 255, 0.769);
+      color: #170505;
+      padding: 5px 10px;
+      margin: 5px;
+      cursor: pointer;
+      }
     }
   }
 }

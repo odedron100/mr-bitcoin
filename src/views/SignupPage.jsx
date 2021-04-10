@@ -17,6 +17,7 @@ export  class _SignupPage extends Component {
     // debugger
     ev.preventDefault()
     this.props.setUser(this.state.user)
+    this.props.history.push('/')
   }
 
   render() {

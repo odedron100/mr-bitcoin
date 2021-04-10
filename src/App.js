@@ -1,12 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Switch,
-  Route
+  Route,
+  Redirect
 } from "react-router-dom";
 
 import './assets/styles/main.scss'
-import HomePage from './views/HomePage';
+import {HomePage} from './views/HomePage';
 // import { ContactDetailsPage } from './views/ContactDetailsPage';
 import { StatisticPage } from './views/StatisticPage';
 import { ContactPage } from './views/ContactPage';
@@ -15,28 +16,31 @@ import { SignupPage } from './views/SignupPage';
 import { ContactDetailsPage } from './views/ContactDetailsPage';
 import { AppHeader } from './cmps/AppHeader';
 import './App.css';
+// import './AppHeader.scss';
 
-class App extends Component {
-  render() {
+function App () {
+  const PrivateRoute = (props) =>{
+    const isLoggedin = sessionStorage.getItem('loggedinUser') || false;
+    return isLoggedin ? <Route component={props.component} path={props.path}/> : <Redirect to ="/signup"/>
+  }
     return (
       <div className="app">
         <Router>
           <AppHeader />
+          <div className="main-container">
           <Switch>
-            <Route path='/contacts/edit/:id?' component={ContactEdit} />
-            <Route path='/contacts/:id' component={ContactDetailsPage} />
-            <Route path="/statistic" component={StatisticPage}>
-            </Route>
+            <Route path='/statistic' component={StatisticPage}/>
+            <PrivateRoute path='/contacts/edit/:id?' component={ContactEdit} />
+            <PrivateRoute path='/contacts/:id' component={ContactDetailsPage} />
+            {/* </Route> */}
             <Route path='/signup' component={SignupPage} />
-            <Route path="/contacts" component={ContactPage}>
-            </Route>
-            <Route path="/" component={HomePage}>
-            </Route>
+            <PrivateRoute path='/contacts' component={ContactPage}/>
+            <PrivateRoute path='/' component={HomePage}/>
           </Switch>
+          </div>
         </Router>
       </div>
     );
   }
-}
 
 export default App;

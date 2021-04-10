@@ -1,38 +1,50 @@
-import { utilService } from './utilService.js';
+// import { utilService } from './utilService.js';
 export const userService = {
-  getUser,
+  getLoggedInUser,
   signup,
-  addMove
+  updateUser
+  // addMove,
+  // updateUserAmount
 }
 
-const KEY = 'user';
-let gUser = {
-  name: "Oded Ron",
-  coins: 100,
-  moves: []
+const KEY = 'loggedinUser';
+// let gUser = {
+//   name: "Oded Ron",
+//   coins: 100,
+//   moves: []
+// }
+
+function getLoggedInUser() {
+  const user = sessionStorage.getItem(KEY)
+  console.log('user', user);
+  return JSON.parse(user)
 }
 
-// return new Promise((resolve, reject) => {
-//   var contactsToReturn = utilService.loadFromStorage(KEY);
-//   if (!contactsToReturn || !contactsToReturn.length) {
-//     contactsToReturn = contacts;
-//   }
-//   gContacts = contactsToReturn
-//   if (filterBy) {
-//     gContacts = filter(filterBy)
-//   }
-//   utilService.saveToStorage(KEY, gContacts);
-//   resolve(sort(gContacts))
-// })
-function getUser() {
-  return Promise.resolve(gUser);
-}
+// function addMove(amount,contact) {
+//   var user = JSON.parse(sessionStorage.getItem(KEY))
+//   const userWithNewMove = {...user,moves:[...user.moves,{at:new Date(), amount,contact}]}
+//   sessionStorage.setItem(KEY,JSON.stringify(userWithNewMove))
+//   return userWithNewMove;
+// }
 
 function signup(user) {
-  gUser = user;
-  utilService.saveToStorage(KEY, user);
+  // utilService.saveToStorage(KEY, user);
+  sessionStorage.setItem(KEY,JSON.stringify(user))
 }
 
-function addMove(contact, amount) {
+// function updateUserAmount(amount) {
+//   var user = JSON.parse(sessionStorage.getItem(KEY))
+//   const newUserAmount = user.coins-amount;
+//   user = {...user,coins:newUserAmount}
+//   sessionStorage.setItem(KEY,JSON.stringify(user))
+//   return user
+// }
 
+function updateUser(amount,contact) {
+  var user = JSON.parse(sessionStorage.getItem(KEY))
+  user.coins = user.coins-amount;
+  const today = new Date();
+  user.moves.push({at: today.toISOString(), amount,contact})
+  sessionStorage.setItem(KEY,JSON.stringify(user))
+  return user
 }

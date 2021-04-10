@@ -1,0 +1,20 @@
+.transfer-fund{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  align-items: center;
+  margin: auto;
+  width: 65%;
+  margin-bottom: 100px;
+  p{
+    display: inline-block;
+  }
+  h3{
+    margin-bottom: 25px;
+  }
+  div{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+  }
+}
