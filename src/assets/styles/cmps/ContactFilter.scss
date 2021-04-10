@@ -13,7 +13,16 @@
       width: 100%;
       justify-content: center;
       & input{
-        margin: 10px;
+        height: 40px;
+        text-align: center;
+        font-size: 18px;
+        border: none;
+        outline: none;
+        transition: width 0.3s;
+        border-bottom: 1px solid black;
+      }
+      & input:hover{
+        width: 120%;
       }
     }
   }

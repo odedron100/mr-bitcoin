@@ -1,28 +1,91 @@
-.app-header{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding-top: 15px;
+.app-header-container{
   background-color: #f7f5f5;
-  border-radius: 3px;
+  width: 100%;
+  padding-top: 15px;
+  height: 78.5px;
   position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  z-index: 2;
-  ul{
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    height: 70px;
+  .app-header{
     display: flex;
-    width: 40%;
     justify-content: space-between;
-    .active-nav{
-      color: #2196f3;
+    align-items: center;
+    padding-top: 15px;
+    border-radius: 3px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    .bars{
+      display: none;
+      font-size: 1.2rem;
+    }
+    ul{
+      display: flex;
+      li{
+        cursor: pointer;
+        margin-inline-end: 25px;
+      }
+      .active-nav{
+        color: #2196f3;
+      }
+    }
+    h1{
+      margin: 0;
     }
   }
-  h1{
-    margin: 0;
-  }
-}
 
-.main-container {
-  padding-top: 80px;
+  .main-container {
+    padding-top: 80px;
+  }
+
+
+  @media screen and (max-width:850px){
+    .app-header{
+      height: 70px;
+      .bars{
+        display: block;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+      ul{
+        display: flex;
+        position: fixed;
+        left: 0;
+        top: 84px;
+        flex-direction: column;
+        height: 100vh;
+        background-color: white;
+        width: 250px;
+        transform: translateX(-100%);
+        box-shadow: none;
+        justify-content: end;
+        transition: transform .8s, box-shadow .8s;
+        & li{
+          margin-left: 25px;
+          padding: 10px;
+          margin-top: 15px;
+          width: 100%;
+          color: #95979d;
+          transition: color 0.2s;
+        }
+        & a:hover{
+          color: #62646a;
+        }
+      }
+      &  ul.open_navbar{
+            z-index: 1;
+            transform: translateX(0);
+            box-shadow: -4px 0px 15px 0px #413e3e;
+            align-items: end;
+          }
+      h1{
+        margin: 0;
+      }
+    }
+  }
 }

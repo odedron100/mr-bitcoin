@@ -1,3 +1,16 @@
 .add-contact{
-    width: 20%;
+    position: fixed;
+    width: 100px;
+    height: 100px;
+    right: 20px;
+    bottom: 20px;
+    z-index: 2;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    transition: box-shadow 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

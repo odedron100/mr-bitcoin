@@ -1,10 +1,4 @@
 .transfer-fund{
-  display: flex;
-  flex-direction: column;
-  margin-top: 100px;
-  align-items: center;
-  margin: auto;
-  width: 100%;
   margin-top: 15px;
   p{
     display: inline-block;
@@ -20,21 +14,18 @@
 
   }
   input{
+     height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: 0 1px 6px 0 rgb(32 33 36 / 28%);
+    outline: none;
+    transition: box-shadow 0.3s;
     margin-inline-end: 35px;
   }
   .transfer-button{
     width: 120px;
     margin: 0;
-  }
-}
-
-@media (max-width : 1200px ){
-  .transfer-fund{
-    div{
-      width: 100%;
-      margin-inline-start: 0px;
-      display: flex;
-      justify-content: center;
-    }
   }
 }

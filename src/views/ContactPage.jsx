@@ -28,9 +28,9 @@ export class _ContactPage extends Component {
   render() {
     const {contacts} = this.props;
     return (
-     contacts && <div className="contacts-container">
+     contacts && <div className="contacts-container container">
         <ContactFilter onFilter={this.onFilter}/>
-        <Link className="add-contact app-button" to="/contacts/edit">Add Contact</Link>
+        <Link className="add-contact" to="/contacts/edit"><i class="fas fa-plus"></i></Link>
         <ContactList contacts={contacts}/>
       </div>
     )
