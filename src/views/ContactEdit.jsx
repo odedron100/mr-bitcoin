@@ -11,7 +11,6 @@ export class _ContactEdit extends Component {
     }
     async componentDidMount() {
         const { id } = this.props.match.params;
-        console.log('id',id );
         try {
             const contact = id ? await contactsService.getContactById(id) : contactsService.getEmptyContact()
             this.setState({ contact })
@@ -34,7 +33,7 @@ export class _ContactEdit extends Component {
     }
     render() {
         if (!this.state.contact) return <div>{this.state.errMsg || 'Loading'}</div>
-        const { name, email, phone } = this.state.contact
+        const { name, email, phone,img } = this.state.contact
         return (
             <form className='contact-edit' onSubmit={this.onSaveContact}>
                 <h3>Edit your contact</h3>
@@ -51,9 +50,13 @@ export class _ContactEdit extends Component {
                     <label htmlFor="phone">Phone</label>
                     <input required type="text" id="phone" value={phone} onChange={this.handleChange} name="phone" />
                 </div>
+                <div>
+                    <label htmlFor="img">Img</label>
+                    <input required type="text" id="img" value={img} onChange={this.handleChange} name="img" />
+                </div>
 
                 <p>{this.state.errMsg}</p>
-                <button>Save Contact</button>
+                <button class="app-button">Save Contact</button>
             </form>
         )
     }

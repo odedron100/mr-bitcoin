@@ -5,12 +5,12 @@ import {Chart} from '../cmps/Chart';
 export class StatisticPage extends Component {
      state = {
         marketPrice: null,
-        avgBlockSize:null
+        // avgBlockSize:null
     }
 
     componentDidMount() {
         this.loadMarketPrice()
-        this.loadAvgBlockSize();
+        // this.loadAvgBlockSize();
     }
 
     async loadMarketPrice() {
@@ -18,10 +18,10 @@ export class StatisticPage extends Component {
         this.setState({ marketPrice })
     }
 
-    async loadAvgBlockSize() {
-        const avgBlockSize = await bitcoinService.getAvgBlockSize()
-        this.setState({ avgBlockSize })
-    }
+    // async loadAvgBlockSize() {
+    //     const avgBlockSize = await bitcoinService.getAvgBlockSize()
+    //     this.setState({ avgBlockSize })
+    // }
 
     getMarketPriceValues(){
         const values = this.state.marketPrice.values.map(value => value.y)
@@ -33,8 +33,8 @@ export class StatisticPage extends Component {
         return values
     }
 render() {
-  const { marketPrice,avgBlockSize } = this.state
-        if(!marketPrice && avgBlockSize) return <h1>Chart Loading...</h1>
+  const { marketPrice } = this.state
+        if(!marketPrice) return <h1>Chart Loading...</h1>
     return (
       <div>
           <h1 className="statistic-title">Statistic page:</h1>

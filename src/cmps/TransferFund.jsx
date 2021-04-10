@@ -26,17 +26,14 @@ export class TransferFund extends Component {
     }
 
     render() {
-      const {contact,maxCoins} = this.props;
+      const {contact} = this.props;
       const {amount} = this.state;
       console.log('amount', amount);
     return (
     contact && <section className="transfer-fund">
-        <h2> Your have {maxCoins} coins</h2>
-        <h3>Transfer coins to {contact.name} </h3>
         <div>
-          <p>Amount:</p>
           <input type="number" name="amount" value={amount} onChange={this.handleChange} />
-          <button className="transfer-button" onClick={this.onTransfer}>Transfer</button>
+          <button className="transfer-button app-button" onClick={this.onTransfer}>Transfer</button>
         </div>
       </section>
     )

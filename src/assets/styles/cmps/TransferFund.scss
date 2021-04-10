@@ -4,8 +4,8 @@
   margin-top: 100px;
   align-items: center;
   margin: auto;
-  width: 65%;
-  margin-bottom: 100px;
+  width: 100%;
+  margin-top: 15px;
   p{
     display: inline-block;
   }
@@ -15,6 +15,27 @@
   div{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: end;
+    margin-inline-start: 87px;
+    align-items: center;
+
+  }
+  input{
+    margin-inline-end: 35px;
+  }
+  .transfer-button{
+    width: 120px;
+    margin: 0;
+  }
+}
+
+@media (max-width : 1200px ){
+  .transfer-fund{
+    div{
+      width: 100%;
+      margin-inline-start: 0px;
+      display: flex;
+      justify-content: center;
+    }
   }
 }

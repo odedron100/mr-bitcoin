@@ -22,6 +22,7 @@ export  class _SignupPage extends Component {
 
   render() {
     return (
+      <section className="signup-container">
        <div className="signup">
         <h4 className="title">Signup to MrBitcoin</h4>
         <form>
@@ -31,9 +32,10 @@ export  class _SignupPage extends Component {
             placeholder="Username"
             onChange={this.handleChange}
           />
-          <button className="signup-button" onClick={this.doSignUp}>Signup</button>
         </form>
+          <button className="signup-button app-button" onClick={this.doSignUp}>Signup</button>
       </div>
+      </section>
     )
   }
 }

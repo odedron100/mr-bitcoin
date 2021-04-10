@@ -20,17 +20,17 @@ export class ContactFilter extends Component {
       <div className="filter">
         <form className="contact-filter" onSubmit={(ev) => ev.preventDefault()}>
           <div>
-            <label htmlFor="name">Name</label>
-            <input type="text" id="name" name="name" value={name} onChange={this.handleChange}/>
+            {/* <label htmlFor="name">Name</label> */}
+            <input type="text" id="name" name="name" value={name} onChange={this.handleChange} placeholder="Name.."/>
           </div>
 
           <div>
-            <label htmlFor="phone">Phone</label>
-            <input type="text" id="phone" name="phone" value={phone} onChange={this.handleChange}/>
+            {/* <label htmlFor="phone">Phone</label> */}
+            <input type="text" id="phone" name="phone" value={phone} onChange={this.handleChange} placeholder="Phone.."/>
           </div>
           <div>
-            <label htmlFor="email">Email</label>
-            <input type="text" id="email" name="email" value={email} onChange={this.handleChange}/>
+            {/* <label htmlFor="email">Email</label> */}
+            <input type="text" id="email" name="email" value={email} onChange={this.handleChange} placeholder="Email.."/>
           </div>
         </form>
       </div>

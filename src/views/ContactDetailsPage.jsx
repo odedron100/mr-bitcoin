@@ -54,18 +54,24 @@ export class _ContactDetailsPage extends Component {
       contact && user && <section className="contact-details container">
         <div className="contact-details-container">
             <div>
-              <h3 className="contact-title">contact details</h3>
-              <h5>Name:{contact.name}</h5>
-              <h5>Phone:{contact.phone}</h5>
-              <h5>Email:{contact.email}</h5>
+              <h3 className="contact-title">{contact.name}</h3>
+              <div className="contact-details-items">
+                <div className="contact-img-container">
+                  <img className="contact-img" src={contact.img} alt=""/>
+                </div>
+                <div>
+                  <h5>Phone:{contact.phone}</h5>
+                  <h5>Email:{contact.email}</h5>
+                </div>
+              </div>
             </div>
+          <TransferFund contact={contact} onTransferCoins={this.onTransferCoins} maxCoins={user.coins}/>
+          <MovesList moves={user.moves} toUser={contact}/>
             <footer>
               <Link className="edit" to={'/contacts/edit/' + contact._id}>Edit</Link>
               <button className="remove-contact" onClick={() => this.onRemoveContact(contact._id)}>Delete</button>
             </footer>
           </div>
-          <TransferFund contact={contact} onTransferCoins={this.onTransferCoins} maxCoins={user.coins}/>
-          <MovesList moves={user.moves} toUser={contact}/>
       </section>
     )
   }
