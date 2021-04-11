@@ -38,7 +38,7 @@ export  class _HomePage extends Component {
         <div className="user-details">
           <h3 className="title">Hello {user.name},</h3>
           <div>
-            <div className="item"><p>you have <span className="user-coins">${user.coins}</span> coins 💰</p></div>
+            <div className="item"><p>you have <span className="user-coins">${user.coins.toFixed(2)}</span> coins 💰</p></div>
             <div className="item"><p>you have <span className="user-bitcoin">${currBtc}</span> bitcoin 💰</p></div>
           </div>
         <div className="user-moves">

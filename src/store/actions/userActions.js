@@ -6,38 +6,38 @@ export function spendBalance(spendAmount) {
     dispatch({ type: 'SPEND_BALANCE', spendAmount })
   }
 }
-  export function setUser(user) {
-    return async dispatch => {
-      const userToSave = { ...user, coins: 100, moves: [] }
-      const userAfterSave = await userService.signup(userToSave)
-      dispatch({ type: 'SET_USER', userAfterSave })
-    }
+export function setUser(user) {
+  return async dispatch => {
+    const userToSave = { ...user, coins: 60000, moves: [] }
+    const userAfterSave = await userService.signup(userToSave)
+    dispatch({ type: 'SET_USER', userAfterSave })
   }
+}
 
-   export function getUser() {
-    return async dispatch => {
-      const user = await userService.getLoggedInUser()
-      console.log('user', user);
-      dispatch({ type: 'GET_USER', user })
-    }
+export function getUser() {
+  return async dispatch => {
+    const user = await userService.getLoggedInUser()
+    console.log('user', user);
+    dispatch({ type: 'GET_USER', user })
   }
+}
 
-  export function getBtcRate(coins) {
-    return async dispatch => {
-      const btcRate = await bitcoinService.getRate(coins)
-      dispatch({ type: 'GET_BTC_RATE', btcRate })
-    }
+export function getBtcRate(coins) {
+  return async dispatch => {
+    const btcRate = await bitcoinService.getRate(coins)
+    dispatch({ type: 'GET_BTC_RATE', btcRate })
   }
+}
 
-  export function updateUser(amount,contact) {
-    return async dispatch => {
-      const newUser = await userService.updateUser(amount,contact)
-      console.log('amount', amount);
-      console.log('contact', contact);
-      console.log('newUser', newUser);
-      dispatch({ type: 'UPDATE_USER', newUser })
-    }
+export function updateUser(amount, contact) {
+  return async dispatch => {
+    const newUser = await userService.updateUser(amount, contact)
+    console.log('amount', amount);
+    console.log('contact', contact);
+    console.log('newUser', newUser);
+    dispatch({ type: 'UPDATE_USER', newUser })
   }
+}
 
   //  export function addMove(amount,contact) {
   //   return async dispatch => {

@@ -14,7 +14,7 @@ const contacts = [
   {
     "_id": "5a56640269f443a5d64b32ca",
     "img": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Ochoa Hyde",
+    "name": "Dominique Soto",
     "email": "ochoahyde@renovize.com",
     "phone": "+1 (968) 593-3824"
   },
@@ -39,13 +39,13 @@ const contacts = [
     "email": "rachellowe@renovize.com",
     "phone": "+1 (911) 475-2312"
   },
-  {
-    "_id": "5a566402abce24c6bfe4699d",
-    "img": "https://images.unsplash.com/photo-1560241804-02b7b1bc9d55?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
-    "name": "Dominique Soto",
-    "email": "dominiquesoto@renovize.com",
-    "phone": "+1 (807) 551-3258"
-  },
+  // {
+  //   "_id": "5a566402abce24c6bfe4699d",
+  //   "img": "https://images.unsplash.com/photo-1560241804-02b7b1bc9d55?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OHx8bWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
+  //   "name": "Dominique Soto",
+  //   "email": "dominiquesoto@renovize.com",
+  //   "phone": "+1 (807) 551-3258"
+  // },
   {
     "_id": "5a566402a6499c1d4da9220a",
     "img": "https://images.unsplash.com/photo-1590086782957-93c06ef21604?ixid=MXwxMjA3fDB8MHxzZWFyY2h8OXx8bWFufGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60",
