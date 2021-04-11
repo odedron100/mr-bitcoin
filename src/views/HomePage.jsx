@@ -43,7 +43,7 @@ export  class _HomePage extends Component {
           </div>
         <div className="user-moves">
           <h3 className="moves-title">Your last moves</h3>
-          <MovesList moves={user.moves.slice(0,)}/>
+          <MovesList moves={user.moves.slice(0,3)}/>
         </div>
         </div>
       </div>

@@ -184,7 +184,8 @@ function getContacts(filterBy = null) {
 
 function getContactById(id) {
   return new Promise((resolve, reject) => {
-    const contact = contacts.find(contact => contact._id === id)
+    var contactsFromStorage = utilService.loadFromStorage(KEY);
+    const contact = contactsFromStorage.find(contact => contact._id === id)
     contact ? resolve(contact) : reject(`Contact id ${id} not found!`)
   })
 }

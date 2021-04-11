@@ -71,9 +71,13 @@
     flex-direction: column;
     .user-moves-details{
       margin-inline-start: 0;
+      margin: auto;
+      margin-block-start: 40px;
     }
     .contact-details-container{
       margin-inline-end: 0;
+      margin-bottom: 20px;
+      margin: auto;
     }
   }
 }

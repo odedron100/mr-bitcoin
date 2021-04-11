@@ -13,6 +13,7 @@
       width: 100%;
       justify-content: center;
       & input{
+        width: 60%;
         height: 40px;
         text-align: center;
         font-size: 18px;
@@ -22,7 +23,7 @@
         border-bottom: 1px solid black;
       }
       & input:hover{
-        width: 120%;
+        width: 100%;
       }
     }
   }
