@@ -7,10 +7,6 @@ export class TransferFund extends Component {
     amount:'',
   }
 
-  componentDidMount(){
-    console.log('this.props', this.props);
-  }
-
     handleChange = ({ target }) => {
         const value = target.type === 'number' ? +target.value : target.value
         this.setState((prevState) => ({ amount:  value }))
@@ -22,7 +18,6 @@ export class TransferFund extends Component {
       }
       this.setState({amount: ''});
       this.props.onTransferCoins(this.state.amount)
-      // this.props.addMove(this.state.amount,this.props.contact)
     }
 
     render() {

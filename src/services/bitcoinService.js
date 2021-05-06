@@ -4,7 +4,6 @@ export const bitcoinService = {
   getRate,
   getMarketPrice,
   getAvgBlockSize,
-  // getConfirmedTransactions
 }
 
 const TRANSACTIONS_DB = 'transactions'
@@ -23,19 +22,19 @@ function getRate(value) {
 
 function getMarketPrice() {
   let market = utilService.loadFromStorage(MARKET_DB)
-    if (!market){
-      return axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
-        .then(res => {
-          market = res.data;
-          utilService.saveToStorage(MARKET_DB,market)
-          console.log('res.data', res.data);
-          return res.data;
-        })
-        .catch(err => {
-          console.log('Service got Error:', err);
-        })
-      }
-      return market
+  if (!market) {
+    return axios.get(`https://api.blockchain.info/charts/market-price?timespan=5months&format=json&cors=true`)
+      .then(res => {
+        market = res.data;
+        utilService.saveToStorage(MARKET_DB, market)
+        console.log('res.data', res.data);
+        return res.data;
+      })
+      .catch(err => {
+        console.log('Service got Error:', err);
+      })
+  }
+  return market
 }
 
 function getAvgBlockSize() {

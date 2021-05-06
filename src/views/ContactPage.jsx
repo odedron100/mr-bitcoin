@@ -9,7 +9,6 @@ import { loadContacts, removeContact } from '../store/actions/contactActions'
 
 export class _ContactPage extends Component {
    state = {
-    // contacts: null,
     filterBy:null
   }
 

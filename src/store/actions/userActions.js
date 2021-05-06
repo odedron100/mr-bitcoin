@@ -38,11 +38,3 @@ export function updateUser(amount, contact) {
     dispatch({ type: 'UPDATE_USER', newUser })
   }
 }
-
-  //  export function addMove(amount,contact) {
-  //   return async dispatch => {
-  //     const userWithNewMove = await userService.addMove(amount,contact)
-  //     console.log('userWithNewMove', userWithNewMove);
-  //     dispatch({ type: 'NEW_MOVE', userWithNewMove })
-  //   }
-  // }

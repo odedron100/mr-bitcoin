@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 export function ContactPreview ({contact}) {
-  // const random = Math.floor(Math.random() *100);
   console.log('contact', contact);
     return (
       <Link to={'/contacts/' + contact._id}>

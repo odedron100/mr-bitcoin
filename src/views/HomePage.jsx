@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-// import { userService } from '../services/userService.js';
-// import { bitcoinService } from '../services/bitcoinService.js';
 import {MovesList} from '../cmps/MovesList';
 import { setUser } from '../store/actions/userActions.js'
 import { getUser } from '../store/actions/userActions.js'

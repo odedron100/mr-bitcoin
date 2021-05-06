@@ -89,3 +89,11 @@
     }
   }
 }
+
+@media (max-width : 800px ){
+    .app-header-container {
+      .app-header{
+        padding: 0 25px;
+      }
+    }
+}

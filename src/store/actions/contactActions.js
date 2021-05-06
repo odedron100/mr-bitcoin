@@ -28,24 +28,7 @@ export function saveContact(contact) {
     else dispatch({ type: 'UPDATE_CONTACT', updatedContact })
   }
 }
-// export function tryContact(contactId) {
-//   return async dispatch => {
-//     const updatedcontact = await contactsService.trycontact(contactId)
-//     dispatch({ type: 'SET_contact', contact: updatedcontact })
-//   }
-// }
-// export function chargecontact(contactId, chargeAmount) {
-//   return async (dispatch, getState) => {
-//     const spendAmount = chargeAmount * 0.5
 
-//     const userBalance = getState().userReducer.user.balance
-//     if (userBalance < spendAmount) return alert('Not enough balance!')
-
-//     const updatedcontact = await contactsService.chargecontact(contactId, chargeAmount)
-//     dispatch({ type: 'SPEND_BALANCE', spendAmount })
-//     dispatch({ type: 'SET_contact', contact: updatedcontact })
-//   }
-// }
 export function removeContact(contactId) {
   return async dispatch => {
     await contactsService.remove(contactId)
